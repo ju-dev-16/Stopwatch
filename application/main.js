@@ -1,9 +1,20 @@
-setInterval(function start() {
+function start(action = true) {
     var timer = document.getElementById('numerator');
     var i = 0;
 
-    while (i < Infinity) {
-        timer.innerHTML = i;
-        i++;
+    if (action == true) {
+        var time = setInterval(function interval() {
+            timer.innerHTML = i;
+            i++;
+        }, 1000);
+    } else if (action == false) {
+        timer.innerHTML = 0;
+        clearInterval(time)
+    } else {
+        alert("Fehler aufgetreten!")
     }
-}, 1000);
+}
+
+function reset() {
+    start(false)
+}
