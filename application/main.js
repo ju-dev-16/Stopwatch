@@ -1,20 +1,20 @@
-function start(action = true) {
-    var timer = document.getElementById('numerator');
-    var i = 0;
+var i = 0;
+var timer = document.getElementById('numerator');
+var time = setInterval(function interval() {
+    timer.innerHTML = i;
+    i++;
+}, 1000);
 
+function start(action = true) {
     if (action == true) {
-        var time = setInterval(function interval() {
-            timer.innerHTML = i;
-            i++;
-        }, 1000);
+        interval();
     } else if (action == false) {
         timer.innerHTML = 0;
-        clearInterval(time)
     } else {
-        alert("Fehler aufgetreten!")
+        alert("Error...");
     }
 }
 
 function reset() {
-    start(false)
+    clearInterval(time);
 }
