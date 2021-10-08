@@ -1,20 +1,25 @@
+var numerator = document.getElementById("numerator");
 var i = 0;
-var timer = document.getElementById('numerator');
-var time = setInterval(function interval() {
-    timer.innerHTML = i;
+
+function interval() {
+    numerator.innerHTML = i;
     i++;
-}, 1000);
+}
+
+function startInterval() {
+    const time = setInterval(interval, 1000);
+    return time
+}
 
 function start(action = true) {
     if (action == true) {
-        interval();
-    } else if (action == false) {
-        timer.innerHTML = 0;
+        startInterval();
     } else {
         alert("Error...");
     }
 }
 
 function reset() {
-    clearInterval(time);
+    clearInterval(startInterval);
+    numerator.innerHTML = 0;
 }
