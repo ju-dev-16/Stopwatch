@@ -1,6 +1,5 @@
-var timer;
 var action = false;
-var action_2 = false;
+var sec_action = false;
 var i;
 
 window.onload = function() {
@@ -9,13 +8,8 @@ window.onload = function() {
 
 function start() {
     i = 0;
-
+    action = false;
     setInterval(loop, 1000);
-}
-
-function stop() {
-    action_2 = true;
-    setTimeout(check, 1000);
 }
 
 function reset() {
@@ -25,25 +19,12 @@ function reset() {
 function loop() {
     if (action === false) {
         numerator.innerHTML = i;
-        i++
+        i++;
     } else if (action === true) {
-        numerator.innerHTML = 0;
         i = 0;
+        numerator.innerHTML = 0;
         clearInterval(loop);
     } else {
-        console.log("Error")
-    }
-}
-
-function check() {
-    if (action_2 === false) {
-        numerator.innerHTML = i;
-        i++
-    } else if (action_2 === true) {
-        clearInterval(loop);
-        i = i;
-        numerator.innerHTML = i;
-    } else {
-        console.log("Error")
+        console.log("Error");
     }
 }
