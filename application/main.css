@@ -8,4 +8,16 @@ body {
 
 .center {
     text-align: center;
+    margin: 0px;
+    margin-left: -100px;
+}
+
+#buttons {
+    margin-left: -100px;
+    margin-top: 35px;
+}
+
+#numerator {
+    margin-top: 25px;
+    font-size: 30px;
 }

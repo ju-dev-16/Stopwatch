@@ -1,35 +1,40 @@
-var time;
-var i;
-var action = false;
+var i = 0;
+var pause = true;
 
 window.onload = function() {
     numerator = document.getElementById("numerator");
 }
 
 function start() {
-    i = 0;
-    action = false;
-    time = setInterval(loop, 1000);
+    if (pause === true) {
+        pause = false;
+        loop();
+    }
 }
 
 function stop() {
-    clearInterval(time);
-    i = numerator.innerHTML;
+    pause = true;
+    inHTML();
 }
 
 function reset() {
-    action = true;
+    pause = true;
+    i = 0;
+    inHTML();
 }
 
 function loop() {
-    if (action === false) {
-        numerator.innerHTML = i;
+    if (pause === false) {
         i++;
-    } else if (action === true) {
-        i = 0;
-        numerator.innerHTML = 0;
-        clearInterval(time);
+        inHTML();
+        setTimeout(loop, 1000);
+    } else if (pause === true) {
+
     } else {
-        console.log("Error");
+        alert("Error...");
     }
+}
+
+function inHTML() {
+    numerator.innerHTML = i;
 }
