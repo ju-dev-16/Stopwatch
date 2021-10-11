@@ -6,5 +6,5 @@ const port = 4000;
 app.use(express.static("public"));
 
 app.listen(port, () => {
-    console.log("app listen in port", port);
+    console.log("Visit the website on: localhost:" + port);
 })
